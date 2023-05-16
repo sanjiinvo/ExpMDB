@@ -47,8 +47,7 @@ let basePath = ''
 
 })
 
-const port = 3000
 
-server.listen(port, 'localhost', (error)=>{
-    error? console.log(error) : console.log(`server is running on ${port}`);
+server.listen(process.env.PORT, 'localhost', (error)=>{
+    error? console.log(error) : console.log(`server is running on ${process.env.PORT}`);
 })
