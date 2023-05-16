@@ -1,28 +1,29 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+require('dotenv').config();
 const mongoose = require('mongoose');
-const db = 'mongodb+srv://SanzharSattybaev:Sanzharsanalismid98@cluster0.26rogan.mongodb.net/?retryWrites=true&w=majority'
 const methodOverride = require('method-override');
 const postRoutes = require('./routes/post-routes')
+const postApiRoutes = require('./routes/api-post-routes')
 const contactRoutes = require('./routes/contact-routes')
 const createPath = require('./helpers/create-path');
 
 
 
+
 mongoose
-    .connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
+    .connect(process.env.MONGO_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('Connected to MongoDB'))
     .catch((error) => console.log(error));
 
 
 app.set('view engine', 'ejs')
 
-const port = 3000;
 
 
-app.listen(port, (error) => {
-    error ? console.log(error) : console.log(`Server is running on port ${port}`); 
+app.listen(process.env.PORT, (error) => {
+    error ? console.log(error) : console.log(`Server is running on port ${process.env.PORT}`); 
 })
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
@@ -47,6 +48,8 @@ app.get('/aboutus', (req, res) => {
 
 app.use(postRoutes);
 app.use(contactRoutes);
+
+app.use(postApiRoutes);
 
 app.use((req, res) => {
     const title = 'Error';
