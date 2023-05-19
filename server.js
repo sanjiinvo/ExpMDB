@@ -1,12 +1,14 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
+const cors = require('cors');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const postRoutes = require('./routes/post-routes')
 const postApiRoutes = require('./routes/api-post-routes')
 const contactRoutes = require('./routes/contact-routes')
+const groupApiRoutes = require('./routes/api-group-routes')
 const createPath = require('./helpers/create-path');
 
 
@@ -25,6 +27,8 @@ app.set('view engine', 'ejs')
 app.listen(process.env.PORT, (error) => {
     error ? console.log(error) : console.log(`Server is running on port ${process.env.PORT}`); 
 })
+
+app.use(cors());
 
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
@@ -48,8 +52,8 @@ app.get('/aboutus', (req, res) => {
 
 app.use(postRoutes);
 app.use(contactRoutes);
-
 app.use(postApiRoutes);
+app.use(groupApiRoutes);
 
 app.use((req, res) => {
     const title = 'Error';
