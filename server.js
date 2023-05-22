@@ -9,6 +9,10 @@ const postRoutes = require('./routes/post-routes')
 const postApiRoutes = require('./routes/api-post-routes')
 const contactRoutes = require('./routes/contact-routes')
 const groupApiRoutes = require('./routes/api-group-routes')
+const kazishiApiRoutes = require('./routes/api-kazishi-routes')
+const rusAldyApiRoutes = require('./routes/api-rus-aldy-routes')
+const kazAldyApiRoutes = require('./routes/api-kaz-aldy-routes ')
+const dipkokApiRoutes = require('./routes/api-dipkok-routes ')
 const createPath = require('./helpers/create-path');
 
 
@@ -54,6 +58,10 @@ app.use(postRoutes);
 app.use(contactRoutes);
 app.use(postApiRoutes);
 app.use(groupApiRoutes);
+app.use(kazishiApiRoutes);
+app.use(rusAldyApiRoutes);
+app.use(kazAldyApiRoutes);
+app.use(dipkokApiRoutes);
 
 app.use((req, res) => {
     const title = 'Error';
