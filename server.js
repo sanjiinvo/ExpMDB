@@ -13,6 +13,8 @@ const kazishiApiRoutes = require('./routes/api-kazishi-routes')
 const rusAldyApiRoutes = require('./routes/api-rus-aldy-routes')
 const kazAldyApiRoutes = require('./routes/api-kaz-aldy-routes ')
 const dipkokApiRoutes = require('./routes/api-dipkok-routes ')
+const hookalist = require('./routes/api-hookatastes-routes')
+const hookalistIDs = require('./routes/api-hookatastesIDs-routes')
 const createPath = require('./helpers/create-path');
 
 
@@ -62,6 +64,8 @@ app.use(kazishiApiRoutes);
 app.use(rusAldyApiRoutes);
 app.use(kazAldyApiRoutes);
 app.use(dipkokApiRoutes);
+app.use(hookalist)
+app.use(hookalistIDs)
 
 app.use((req, res) => {
     const title = 'Error';
