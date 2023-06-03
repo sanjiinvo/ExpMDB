@@ -73,7 +73,7 @@ app.use(hookalistIDs)
 app.use(rusIshiApiRoutes)
 app.use(kazishiApiRoutesZaoch)
 app.use(rusAldyZaochApiRoutes)
-app.user(kazAldyZaochApiRoutes)
+app.use(kazAldyZaochApiRoutes)
 
 app.use((req, res) => {
     const title = 'Error';

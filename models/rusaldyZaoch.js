@@ -28,6 +28,6 @@ const rusaldyZaochSchema = new Schema({
 
 },{timestamps:true});
 
-const RusAldyZaoch = mongoose.model('RusAldyZaoch',groupSchema);
+const RusAldyZaoch = mongoose.model('RusAldyZaoch',rusaldyZaochSchema);
 
 module.exports = RusAldyZaoch;
