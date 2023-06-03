@@ -1,5 +1,5 @@
-const RusAldyZaoch = require('../models/RusAldyZaoch');
-
+const RusAldyZaoch = require('../models/rusaldyZaoch');
+console.log(123);
 const handleError = (res, error) => {
     res.status(500).send(error.message);
   }
