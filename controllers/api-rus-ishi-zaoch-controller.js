@@ -13,8 +13,8 @@ const handleError = (res, error) => {
 }
 
 const addRusishiZaoch = (req, res) => {
-  const { RusishiZaochName, objectsNumbers, objectsNames, objectsHours, objectsCredits, objectsPoints,objectsHeader } = req.body;
-  const rusishiZaoch = new RusishiZaoch({ RusishiZaochName, objectsNumbers, objectsNames, objectsHours, objectsCredits, objectsPoints,objectsHeader });
+  const { groupName, objectsNumbers, objectsNames, objectsHours, objectsCredits, objectsPoints,objectsHeader } = req.body;
+  const rusishiZaoch = new RusishiZaoch({ groupName, objectsNumbers, objectsNames, objectsHours, objectsCredits, objectsPoints,objectsHeader });
   rusishiZaoch
     .save()
     .then((RusishiZaoch) => res.status(200).json(RusishiZaoch))
@@ -37,10 +37,10 @@ const deleteRusishiZaoch = (req, res) => {
 }
 
 const editRusishiZaoch = (req, res) => {
-  const { RusishiZaochName, objectsNumber, objectsNames, objectsHours, objectsCredits, objectPoints,objectsHeader } = req.body;
+  const { groupName, objectsNumber, objectsNames, objectsHours, objectsCredits, objectPoints,objectsHeader } = req.body;
   const { id } = req.params;
   RusishiZaoch
-    .findByIdAndUpdate(id, { RusishiZaochName, objectsNumber, objectsNames, objectsHours, objectsCredits, objectPoints,objectsHeader }, { new: true })
+    .findByIdAndUpdate(id, { groupName, objectsNumber, objectsNames, objectsHours, objectsCredits, objectPoints,objectsHeader }, { new: true })
     .then((RusishiZaoch) => res.json(RusishiZaoch))
     .catch((error) => handleError(res, error));
 }

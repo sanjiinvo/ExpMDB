@@ -11,14 +11,14 @@ const {
 const router = express.Router();
 
 // Get All Posts
-router.get('/api/RusishiZaochs', getRusishiZaochs);
+router.get('/api/rusishizaochs', getRusishiZaochs);
 // Add New Post
-router.post('/api/RusishiZaoch/', addRusishiZaoch);
+router.post('/api/rusishizaoch/', addRusishiZaoch);
 // Get Post by ID
-router.get('/api/RusishiZaoch/:id', getRusishiZaoch);
+router.get('/api/rusishizaoch/:id', getRusishiZaoch);
 // Delete Post by ID
-router.delete('/api/RusishiZaoch/:id', deleteRusishiZaoch);
+router.delete('/api/rusishizaoch/:id', deleteRusishiZaoch);
 // Update Post by ID
-router.put('/api/RusishiZaoch/:id', editRusishiZaoch);
+router.put('/api/rusishizaoch/:id', editRusishiZaoch);
 
 module.exports = router;
