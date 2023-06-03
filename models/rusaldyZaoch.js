@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const rusaldyZaochSchema = new Schema({
+const groupSchema = new Schema({
     groupName:{
         type:String,
         required:true
@@ -28,6 +28,6 @@ const rusaldyZaochSchema = new Schema({
 
 },{timestamps:true});
 
-const RusAldyZaoch = mongoose.model('RusAldyZaoch',rusaldyZaochSchema);
+const RusAldyZaoch = mongoose.model('RusAldyZaoch',groupSchema);
 
 module.exports = RusAldyZaoch;
