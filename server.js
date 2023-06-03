@@ -9,9 +9,13 @@ const postRoutes = require('./routes/post-routes')
 const postApiRoutes = require('./routes/api-post-routes')
 const contactRoutes = require('./routes/contact-routes')
 const groupApiRoutes = require('./routes/api-group-routes')
+const rusIshiApiRoutes = require('./routes/api-rush-ishi-routes')
 const kazishiApiRoutes = require('./routes/api-kazishi-routes')
+const kazishiApiRoutesZaoch = require('./routes/api-kazishi-zaoch-routes')
 const rusAldyApiRoutes = require('./routes/api-rus-aldy-routes')
+const rusAldyZaochApiRoutes = require('./routes/api-rus-aldy-zaoch-routes')
 const kazAldyApiRoutes = require('./routes/api-kaz-aldy-routes ')
+const kazAldyZaochApiRoutes = require('./routes/api-kaz-aldy-zaoch-routes ')
 const dipkokApiRoutes = require('./routes/api-dipkok-routes ')
 const hookalist = require('./routes/api-hookatastes-routes')
 const hookalistIDs = require('./routes/api-hookatastesIDs-routes')
@@ -66,6 +70,10 @@ app.use(kazAldyApiRoutes);
 app.use(dipkokApiRoutes);
 app.use(hookalist)
 app.use(hookalistIDs)
+app.use(rusIshiApiRoutes)
+app.use(kazishiApiRoutesZaoch)
+app.use(rusAldyZaochApiRoutes)
+app.user(kazAldyZaochApiRoutes)
 
 app.use((req, res) => {
     const title = 'Error';
