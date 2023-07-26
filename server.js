@@ -19,6 +19,7 @@ const kazAldyZaochApiRoutes = require('./routes/api-kaz-aldy-zaoch-routes ')
 const dipkokApiRoutes = require('./routes/api-dipkok-routes ')
 const hookalist = require('./routes/api-hookatastes-routes')
 const hookalistIDs = require('./routes/api-hookatastesIDs-routes')
+const agentinfo = require('./routes/api-agent-routes ')
 const createPath = require('./helpers/create-path');
 
 
@@ -68,6 +69,7 @@ app.use(kazishiApiRoutes);
 app.use(rusAldyApiRoutes);
 app.use(kazAldyApiRoutes);
 app.use(dipkokApiRoutes);
+app.use(agentinfo);
 app.use(hookalist)
 app.use(hookalistIDs)
 app.use(rusIshiApiRoutes)
