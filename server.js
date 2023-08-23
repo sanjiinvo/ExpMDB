@@ -31,13 +31,14 @@ mongoose
     .catch((error) => console.log(error));
 
 
+
 app.set('view engine', 'ejs')
 
 
 
-app.listen(process.env.PORT, (error) => {
-    error ? console.log(error) : console.log(`Server is running on port ${process.env.PORT}`); 
-})
+// app.listen(process.env.PORT, '192.168.104.9', (error) => {
+//     error ? console.log(error) : console.log(`Server is running on port ${process.env.PORT}`); 
+// })
 
 app.use(cors());
 
@@ -77,9 +78,18 @@ app.use(kazishiApiRoutesZaoch)
 app.use(rusAldyZaochApiRoutes)
 app.use(kazAldyZaochApiRoutes)
 
-app.use((req, res) => {
-    const title = 'Error';
-    res
-    .status(404)
-    .render(createPath('error'),{title});
+const httpsOption = {
+    cert: fs.readFileSync('/etc/letsencrypt/lieve/www.test.space.sanzhproj.kz/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/lieve/www.test.space.sanzhproj.kz/privkey.pem'),
+}
+const httpsServer = https.createServer(httpsOption, app)
+httpsServer.listen(process.env.PORT, ()=>{
+    console.log(`HTTPS server running on ${process.env.PORT}`);
 })
+
+// app.use((req, res) => {
+//     const title = 'Error';
+//     res
+//     .status(404)
+//     .render(createPath('error'),{title});
+// })
