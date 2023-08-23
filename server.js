@@ -1,5 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
+const fs = require('fs')
+const  https = require('https')
 const app = express();
 const cors = require('cors');
 require('dotenv').config();
@@ -79,8 +81,8 @@ app.use(rusAldyZaochApiRoutes)
 app.use(kazAldyZaochApiRoutes)
 
 const httpsOption = {
-    cert: fs.readFileSync('/etc/letsencrypt/lieve/www.test.space.sanzhproj.kz/fullchain.pem'),
-    key: fs.readFileSync('/etc/letsencrypt/lieve/www.test.space.sanzhproj.kz/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/www.test.space.sanzhproj.kz/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/www.test.space.sanzhproj.kz/privkey.pem'),
 }
 const httpsServer = https.createServer(httpsOption, app)
 httpsServer.listen(process.env.PORT, ()=>{
